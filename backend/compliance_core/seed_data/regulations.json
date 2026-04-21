@@ -1,0 +1,66 @@
+[
+  {
+    "framework": "GDPR",
+    "clause_number": "Art. 33",
+    "source_document": "Regulation (EU) 2016/679",
+    "version": "2016",
+    "jurisdiction": "EU",
+    "text": "Article 33 — Notification of a personal data breach to the supervisory authority: the controller shall notify without undue delay and, where feasible, not later than 72 hours after having become aware of it, unless breach is unlikely to result in risk to individuals."
+  },
+  {
+    "framework": "GDPR",
+    "clause_number": "Art. 34",
+    "source_document": "Regulation (EU) 2016/679",
+    "version": "2016",
+    "jurisdiction": "EU",
+    "text": "Article 34 — Communication of a personal data breach to the data subject occurs without undue delay when breach likely results in high risk to rights and freedoms; exceptions apply where subsequent measures reduce risk."
+  },
+  {
+    "framework": "NIST CSF",
+    "clause_number": "DE.CM",
+    "source_document": "NIST Cybersecurity Framework 2.0 — Detect Function",
+    "version": "2.0",
+    "jurisdiction": null,
+    "text": "Continuous monitoring capabilities are maintained to detect cybersecurity events including unauthorized access and anomalies affecting critical assets and sensitive data flows."
+  },
+  {
+    "framework": "NIST CSF",
+    "clause_number": "RS.MI",
+    "source_document": "NIST Cybersecurity Framework 2.0 — Respond Function",
+    "version": "2.0",
+    "jurisdiction": null,
+    "text": "Incidents are managed according to plans that include escalation paths, containment, recovery, and lessons learned with involvement of executive leadership where risk warrants."
+  },
+  {
+    "framework": "ISO 27001",
+    "clause_number": "A.16.1",
+    "source_document": "ISO/IEC 27001:2022 Annex A",
+    "version": "2022",
+    "jurisdiction": null,
+    "text": "Information security incident management responsibilities and procedures shall be established to quickly respond to and learn from incidents including notification where regulation requires."
+  },
+  {
+    "framework": "ENISA",
+    "clause_number": "Breach Notification Guidance",
+    "source_document": "ENISA Good Practices for Incident Reporting",
+    "version": "summary",
+    "jurisdiction": "EU",
+    "text": "Organizations should establish predefined breach assessment workflows integrating technical indicators with legal thresholds for notifying authorities and affected individuals across sectors."
+  },
+  {
+    "framework": "GDPR",
+    "clause_number": "Art. 4(12)",
+    "source_document": "Regulation (EU) 2016/679",
+    "version": "2016",
+    "jurisdiction": "EU",
+    "text": "Personal data breach means breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to personal data transmitted, stored or otherwise processed."
+  },
+  {
+    "framework": "Company Policy",
+    "clause_number": "SEC-IR-01",
+    "source_document": "Acme Corp Incident Response Policy",
+    "version": "2025-Q1",
+    "jurisdiction": null,
+    "text": "Any confirmed access to customer PII outside least-privilege authorization requires CISO notification within one hour and executive briefing if records affected exceed 5,000."
+  }
+]

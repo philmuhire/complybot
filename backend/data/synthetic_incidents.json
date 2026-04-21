@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "syn-minor-000",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-000.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-001",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-001.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-002",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-002.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-003",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-003.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-004",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-004.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-005",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-005.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-006",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-006.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-007",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-007.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-008",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-008.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-009",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-009.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-010",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-010.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-011",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-011.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-012",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-012.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-013",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-013.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-014",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-014.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-015",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-015.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-016",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-016.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-017",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-017.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-018",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-018.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-019",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-019.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-020",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-020.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-021",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-021.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-022",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-022.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-023",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-023.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-024",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-024.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-025",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-025.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-026",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-026.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-027",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-027.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-028",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-028.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-029",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-029.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-030",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-030.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-031",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-031.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-032",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-032.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-033",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-033.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-034",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-034.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-035",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-035.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-036",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-036.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-037",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-037.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-038",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-038.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-039",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-039.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-040",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-040.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-041",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-041.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-042",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-042.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-043",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-043.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-044",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-044.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-045",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-045.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-046",
+    "tier": "minor",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-046.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-047",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Mis-scanned dev S3 bucket had public ACL for 2h; bucket held mock data only, no customer PII. Case synthetic id syn-minor-047.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-048",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Port scan detected on DMZ firewall, no lateral movement, no data access logged. Source IP blocklisted. Case synthetic id syn-minor-048.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-minor-049",
+    "tier": "minor",
+    "jurisdiction_hint": "EU",
+    "narrative": "Phishing email reported and quarantined before credential entry. No mailbox rules changed. Case synthetic id syn-minor-049.",
+    "labels": {
+      "reportable": false,
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-reportable-000",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-000.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-001",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-001.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-002",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-002.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-003",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-003.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-004",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-004.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-005",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-005.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-006",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-006.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-007",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-007.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-008",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-008.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-009",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-009.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-010",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-010.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-011",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-011.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-012",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-012.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-013",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-013.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-014",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-014.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-015",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-015.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-016",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-016.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-017",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-017.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-018",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-018.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-019",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-019.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-020",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-020.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-021",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-021.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-022",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-022.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-023",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-023.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-024",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-024.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-025",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-025.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-026",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-026.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-027",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-027.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-028",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-028.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-029",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-029.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-030",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-030.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-031",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-031.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-032",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-032.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-033",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-033.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-034",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-034.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-035",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-035.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-036",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-036.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-037",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-037.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-038",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-038.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-039",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-039.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-040",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-040.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-041",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-041.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-042",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-042.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-043",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-043.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-044",
+    "tier": "reportable",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-044.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-045",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-045.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-046",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "API key leaked in GitHub exposed production read access to invoices (business contact PII + amounts) for 48h. Case synthetic id syn-reportable-046.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-047",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-047.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-048",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Attacker obtained admin creds via spearphish; accessed `customer_db` table with 12k rows containing name+email. Contained within 6h. Case synthetic id syn-reportable-048.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-reportable-049",
+    "tier": "reportable",
+    "jurisdiction_hint": "EU",
+    "narrative": "Ransomware encrypted file share; backups restored. Forensics found exfiltration of HR CSV with employee national IDs (~4k rows). Case synthetic id syn-reportable-049.",
+    "labels": {
+      "reportable": true,
+      "expected_authority_hours": 72
+    }
+  },
+  {
+    "id": "syn-borderline-000",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-000.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-001",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-001.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-002",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-002.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-003",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-003.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-004",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-004.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-005",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-005.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-006",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-006.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-007",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-007.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-008",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-008.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-009",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-009.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-010",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-010.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-011",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-011.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-012",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-012.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-013",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-013.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-014",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-014.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-015",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-015.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-016",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-016.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-017",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-017.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-018",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-018.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-019",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-019.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-020",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-020.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-021",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-021.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-022",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-022.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-023",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-023.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-024",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-024.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-025",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-025.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-026",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-026.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-027",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-027.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-028",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-028.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-029",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-029.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-030",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-030.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-031",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-031.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-032",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-032.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-033",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-033.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-034",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-034.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-035",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-035.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-036",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-036.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-037",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-037.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-038",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-038.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-039",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-039.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-040",
+    "tier": "borderline",
+    "jurisdiction_hint": "US-FED",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-040.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-041",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-041.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-042",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-042.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-043",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-043.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-044",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-044.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-045",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-045.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-046",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Malware on laptop of sales rep; possible local cache of customer contacts; encryption status unknown. Case synthetic id syn-borderline-046.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-047",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-047.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-048",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Unauthorized access to analytics warehouse; unclear if sampled rows could re-identify users. 900 user events with coarse geo only. Case synthetic id syn-borderline-048.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  },
+  {
+    "id": "syn-borderline-049",
+    "tier": "borderline",
+    "jurisdiction_hint": "EU",
+    "narrative": "Vendor support account used outside change window to run SELECT on logs DB; unclear if queries returned PII columns. Case synthetic id syn-borderline-049.",
+    "labels": {
+      "reportable": "borderline",
+      "expected_authority_hours": null
+    }
+  }
+]
