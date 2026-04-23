@@ -61,6 +61,12 @@ class Regulation(Base):
     source_document: Mapped[str] = mapped_column(String(512))
     version: Mapped[str] = mapped_column(String(64))
     jurisdiction: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    user_document_id: Mapped[str | None] = mapped_column(
+        String(36), nullable=True, index=True
+    )
+    owner_id: Mapped[str | None] = mapped_column(
+        String(128), nullable=True, index=True
+    )
     text: Mapped[str] = mapped_column(Text)
     embedding = mapped_column(Vector(1536), nullable=True)
 

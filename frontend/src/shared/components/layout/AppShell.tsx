@@ -29,7 +29,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             href="/Dashboard"
             className="rounded-lg px-3 py-2 font-medium text-zinc-200 hover:bg-zinc-900"
           >
-            {!sidebarCollapsed ? "Compliance Console" : "⌁"}
+            {!sidebarCollapsed ? "Compliance console" : "⌁"}
+          </Link>
+          <Link
+            href="/framework"
+            className="rounded-lg px-3 py-2 font-medium text-zinc-200 hover:bg-zinc-900"
+          >
+            {!sidebarCollapsed ? "Framework library" : ""}
           </Link>
         </nav>
       </aside>

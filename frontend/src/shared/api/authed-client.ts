@@ -11,6 +11,9 @@ export function createAuthedClient(getToken: () => Promise<string | null>): Axio
     headers: { "Content-Type": "application/json" },
   });
   client.interceptors.request.use(async (config) => {
+    if (config.data instanceof FormData) {
+      delete (config.headers as { "Content-Type"?: string })["Content-Type"];
+    }
     const token = await getToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
