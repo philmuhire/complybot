@@ -46,6 +46,18 @@ data "aws_iam_policy_document" "github_actions_deploy" {
     resources = ["*"]
   }
 
+  # Terraform state refresh (Describe* / tags / policy) — ECRPush alone is not enough
+  statement {
+    sid    = "ECRRead"
+    effect = "Allow"
+    actions = [
+      "ecr:DescribeRepositories",
+      "ecr:ListTagsForResource",
+      "ecr:GetRepositoryPolicy",
+    ]
+    resources = ["arn:aws:ecr:${var.aws_region}:${data.aws_caller_identity.current.account_id}:repository/*"]
+  }
+
   statement {
     sid    = "ECRPush"
     effect = "Allow"
@@ -112,9 +124,21 @@ data "aws_iam_policy_document" "github_actions_deploy" {
   }
 
   statement {
-    sid       = "S3BucketConfig"
-    effect    = "Allow"
-    actions   = ["s3:DeleteBucket", "s3:PutBucketPolicy", "s3:DeleteBucketPolicy", "s3:PutPublicAccessBlock", "s3:PutBucketVersioning", "s3:GetBucketLocation", "s3:GetBucketPolicy"]
+    sid    = "S3BucketConfig"
+    effect = "Allow"
+    actions = [
+      "s3:DeleteBucket",
+      "s3:PutBucketPolicy",
+      "s3:DeleteBucketPolicy",
+      "s3:PutPublicAccessBlock",
+      "s3:PutBucketVersioning",
+      "s3:GetBucketLocation",
+      "s3:GetBucketPolicy",
+      "s3:GetBucketAcl",
+      "s3:PutBucketAcl",
+      "s3:GetBucketOwnershipControls",
+      "s3:PutBucketOwnershipControls",
+    ]
     resources = ["arn:aws:s3:::*"]
   }
 
@@ -156,10 +180,42 @@ data "aws_iam_policy_document" "github_actions_deploy" {
   }
 
   statement {
-    sid       = "IAMRolePolicies"
-    effect    = "Allow"
-    actions   = ["iam:GetRole", "iam:CreateRole", "iam:DeleteRole", "iam:UpdateRole", "iam:UpdateAssumeRolePolicy", "iam:PassRole", "iam:TagRole", "iam:CreatePolicy", "iam:AttachRolePolicy", "iam:DetachRolePolicy", "iam:DeleteRolePolicy", "iam:PutRolePolicy"]
+    sid    = "IAMRolePolicies"
+    effect = "Allow"
+    actions = [
+      "iam:GetRole",
+      "iam:CreateRole",
+      "iam:DeleteRole",
+      "iam:UpdateRole",
+      "iam:UpdateAssumeRolePolicy",
+      "iam:PassRole",
+      "iam:TagRole",
+      "iam:CreatePolicy",
+      "iam:DeletePolicy",
+      "iam:AttachRolePolicy",
+      "iam:DetachRolePolicy",
+      "iam:DeleteRolePolicy",
+      "iam:PutRolePolicy",
+      "iam:ListRolePolicies",
+      "iam:GetRolePolicy",
+      "iam:ListAttachedRolePolicies",
+      "iam:ListInstanceProfilesForRole",
+    ]
     resources = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${var.project_name}-${var.environment}-*"]
+  }
+
+  # Terraform refresh reads inline / managed policy content on roles this stack owns
+  statement {
+    sid    = "IAMPolicyRead"
+    effect = "Allow"
+    actions = [
+      "iam:GetPolicy",
+      "iam:GetPolicyVersion",
+      "iam:ListPolicyVersions",
+    ]
+    resources = [
+      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:policy/${var.project_name}-*",
+    ]
   }
 }
 
