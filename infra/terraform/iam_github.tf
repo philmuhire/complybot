@@ -54,6 +54,9 @@ data "aws_iam_policy_document" "github_actions_deploy" {
       "ecr:DescribeRepositories",
       "ecr:ListTagsForResource",
       "ecr:GetRepositoryPolicy",
+      "ecr:GetLifecyclePolicy",
+      "ecr:PutLifecyclePolicy",
+      "ecr:DeleteLifecyclePolicy",
     ]
     resources = ["arn:aws:ecr:${var.aws_region}:${data.aws_caller_identity.current.account_id}:repository/*"]
   }
@@ -138,6 +141,9 @@ data "aws_iam_policy_document" "github_actions_deploy" {
       "s3:PutBucketAcl",
       "s3:GetBucketOwnershipControls",
       "s3:PutBucketOwnershipControls",
+      "s3:GetBucketCORS",
+      "s3:PutBucketCORS",
+      "s3:DeleteBucketCORS",
     ]
     resources = ["arn:aws:s3:::*"]
   }
