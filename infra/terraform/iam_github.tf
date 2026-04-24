@@ -134,6 +134,7 @@ data "aws_iam_policy_document" "github_actions_deploy" {
       "s3:PutBucketPolicy",
       "s3:DeleteBucketPolicy",
       "s3:PutPublicAccessBlock",
+      "s3:GetBucketVersioning",
       "s3:PutBucketVersioning",
       "s3:GetBucketLocation",
       "s3:GetBucketPolicy",
