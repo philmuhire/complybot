@@ -1,12 +1,10 @@
-import { SignIn } from "@clerk/nextjs";
+import { SignInView } from "./SignInView";
 
-const afterSignIn =
-  process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL?.trim() || "/Dashboard";
+/** Required for `output: "export"`: pre-render the default sign-in path. */
+export function generateStaticParams() {
+  return [{ "sign-in": [] as const }];
+}
 
 export default function SignInPage() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
-      <SignIn forceRedirectUrl={afterSignIn} fallbackRedirectUrl={afterSignIn} />
-    </div>
-  );
+  return <SignInView />;
 }

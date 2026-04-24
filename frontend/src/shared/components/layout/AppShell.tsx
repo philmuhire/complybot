@@ -1,6 +1,6 @@
 "use client";
 
-import { UserButton } from "@clerk/nextjs";
+import { UserButton } from "@clerk/react";
 import Link from "next/link";
 
 import { useUiStore } from "@/shared/stores/ui-store";
@@ -26,7 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
         <nav className="flex flex-col gap-1 p-3 text-sm">
           <Link
-            href="/Dashboard"
+            href="/Dashboard/"
             className="rounded-lg px-3 py-2 font-medium text-zinc-200 hover:bg-zinc-900"
           >
             {!sidebarCollapsed ? "Compliance console" : "⌁"}

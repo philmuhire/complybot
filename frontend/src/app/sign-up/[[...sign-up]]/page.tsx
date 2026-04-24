@@ -1,14 +1,10 @@
-import { SignUp } from "@clerk/nextjs";
+import { SignUpView } from "./SignUpView";
 
-const afterSignUp =
-  process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL?.trim() ||
-  process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL?.trim() ||
-  "/Dashboard";
+/** Required for `output: "export"`: pre-render the default sign-up path. */
+export function generateStaticParams() {
+  return [{ "sign-up": [] as const }];
+}
 
 export default function SignUpPage() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
-      <SignUp forceRedirectUrl={afterSignUp} fallbackRedirectUrl={afterSignUp} />
-    </div>
-  );
+  return <SignUpView />;
 }

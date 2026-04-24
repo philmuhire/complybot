@@ -54,6 +54,14 @@ resource "aws_s3_bucket_policy" "frontend" {
   ]
 }
 
+resource "aws_cloudfront_function" "s3_index_html" {
+  name    = "${var.project_name}-${var.environment}-s3-index-html"
+  runtime = "cloudfront-js-1.0"
+  code    = file("${path.module}/cloudfront_s3_index_html.js")
+  comment = "Map /path and /path/ to /path/index.html (Next static export on S3)"
+  publish = true
+}
+
 data "aws_cloudfront_cache_policy" "caching_optimized" {
   name = "Managed-CachingOptimized"
 }
@@ -82,6 +90,13 @@ resource "aws_cloudfront_distribution" "frontend" {
     compress                 = true
     cache_policy_id          = data.aws_cloudfront_cache_policy.caching_optimized.id
     origin_request_policy_id = data.aws_cloudfront_origin_request_policy.cors_s3.id
+
+    # Without this, /Dashboard requests the S3 key "Dashboard" (missing) instead of
+    # "Dashboard/index.html" — Clerk post-login redirect returns 403 Access Denied.
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.s3_index_html.arn
+    }
   }
 
   restrictions {
