@@ -1,0 +1,44 @@
+# Copy to terraform.tfvars (gitignored). GitHub: create secret TERRAFORM_TFVARS = same full file content.
+
+project_name = "compliance"
+environment  = "dev"
+aws_region   = "us-east-1"
+
+github_org   = "your-github-user-or-org"
+github_repo  = "capstone"
+github_branch  = "main"
+
+# If this account already has GitHub OIDC (error 409), set false and the provider ARN:
+#   aws iam list-open-id-connect-providers
+# create_github_oidc_provider = false
+# github_oidc_provider_arn     = "arn:aws:iam::ACCOUNT:oidc-provider/token.actions.githubusercontent.com"
+create_github_oidc_provider = true
+
+# true after ECR :latest exists (e.g. first "push to main" can build; first apply can use false + apply, then true + apply)
+create_apprunner_service = true
+
+# One block per value — same pattern as: OPENROUTER_API_KEY = var.openrouter_api_key
+clerk_issuer   = "https://..."
+clerk_jwks_url = "https://.../.well-known/jwks.json"
+clerk_secret_key = "sk_..."
+
+embedding_model     = "openai/text-embedding-3-small"
+langfuse_base_url  = "https://cloud.langfuse.com"
+langfuse_host      = "https://cloud.langfuse.com"
+langfuse_public_key = "pk-..."
+langfuse_secret_key = "sk-..."
+llm_model = "openai/gpt-4.1-mini"
+
+openai_agents_disable_tracing = "false"
+openai_api_key                = "sk-..."
+
+openrouter_api_key  = "sk-or-..."
+openrouter_base_url = "https://openrouter.ai/api/v1"
+
+supabase_database_url = "postgresql+asyncpg://..."
+
+# Optional
+# apprunner_auto_deploy         = true
+# apprunner_instance_role_arn  = "arn:aws:iam::...:role/..."
+# apprunner_environment_extras  = { SOME_KEY = "value" }
+# extra_cors_origins = "http://localhost:3000"

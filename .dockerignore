@@ -1,0 +1,17 @@
+.git
+.github
+.venv
+**/__pycache__
+**/*.pyc
+node_modules
+.next
+out
+*.md
+.env
+.env.*
+!backend/.env.example
+frontend
+infra
+scripts
+*.tfstate
+.terraform

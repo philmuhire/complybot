@@ -3,10 +3,19 @@ __pycache__/
 *.pyc
 .env
 .env.local
+frontend/.env.production
+frontend/out/
 node_modules/
 .next/
 dist/
 .DS_Store
+# Terraform
+infra/terraform/.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfstate.backup
+*.tfplan
+infra/terraform/terraform.tfvars
 *.egg-info/
 .pytest_cache/
 .coverage

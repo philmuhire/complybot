@@ -1,0 +1,5 @@
+# Optional: used when deploy.sh runs with workspace "prod" and this file is present
+# (e.g. override environment-specific settings)
+
+# cloudfront_price_class = "PriceClass_200"
+# additional_cors_origins  = "https://app.example.com"

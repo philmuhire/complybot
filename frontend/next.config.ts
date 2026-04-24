@@ -27,6 +27,15 @@ for (const dir of [
   loadEnvConfig(dir, dev);
 }
 
-const nextConfig: NextConfig = {};
+/** S3 + CloudFront: set STATIC_EXPORT=true (see scripts/deploy.sh) */
+const staticExport = process.env.STATIC_EXPORT === "true";
+
+const nextConfig: NextConfig = {
+  ...(staticExport && {
+    output: "export" as const,
+    trailingSlash: true,
+    images: { unoptimized: true },
+  }),
+};
 
 export default nextConfig;
