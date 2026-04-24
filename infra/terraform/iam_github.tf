@@ -144,6 +144,9 @@ data "aws_iam_policy_document" "github_actions_deploy" {
       "s3:GetBucketCORS",
       "s3:PutBucketCORS",
       "s3:DeleteBucketCORS",
+      "s3:GetBucketWebsite",
+      "s3:PutBucketWebsite",
+      "s3:DeleteBucketWebsite",
     ]
     resources = ["arn:aws:s3:::*"]
   }
