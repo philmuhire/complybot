@@ -5,7 +5,7 @@ environment  = "dev"
 aws_region   = "us-east-1"
 
 github_org   = "your-github-user-or-org"
-github_repo  = "capstone"
+github_repo  = "complybot" # must match the repo name in the URL (e.g. github.com/you/REPO)
 github_branch  = "main"
 
 # If this account already has GitHub OIDC (error 409), set false and the provider ARN:

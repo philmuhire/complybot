@@ -11,10 +11,15 @@ data "aws_iam_policy_document" "github_actions_assume" {
       variable = "token.actions.githubusercontent.com:aud"
       values   = ["sts.amazonaws.com"]
     }
+    # GitHub: push/PR to a branch → sub = repo:ORG/REPO:ref:refs/heads/BRANCH
+    # Jobs with environment: x → sub = repo:ORG/REPO:environment:NAME (not ref:...)
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_org}/${var.github_repo}:ref:refs/heads/${var.github_branch}"]
+      values = [
+        "repo:${var.github_org}/${var.github_repo}:ref:refs/heads/${var.github_branch}",
+        "repo:${var.github_org}/${var.github_repo}:environment:*",
+      ]
     }
   }
 }
