@@ -126,30 +126,19 @@ data "aws_iam_policy_document" "github_actions_deploy" {
     resources = ["*"]
   }
 
+  # aws_s3_bucket: Terraform plan/apply uses many bucket-level S3 APIs (accelerate, website, CORS, ...). IAM
+  # action wildcards on the bucket name ARN cover those without listing every action; they do not grant
+  # object I/O (object ARNs are .../key, not matched by the bare bucket ARN pattern).
   statement {
     sid    = "S3BucketConfig"
     effect = "Allow"
     actions = [
-      "s3:DeleteBucket",
-      "s3:PutBucketPolicy",
-      "s3:DeleteBucketPolicy",
-      "s3:PutPublicAccessBlock",
-      "s3:GetBucketVersioning",
-      "s3:PutBucketVersioning",
-      "s3:GetBucketLocation",
-      "s3:GetBucketPolicy",
-      "s3:GetBucketAcl",
-      "s3:PutBucketAcl",
-      "s3:GetBucketOwnershipControls",
-      "s3:PutBucketOwnershipControls",
-      "s3:GetBucketCORS",
-      "s3:PutBucketCORS",
-      "s3:DeleteBucketCORS",
-      "s3:GetBucketWebsite",
-      "s3:PutBucketWebsite",
-      "s3:DeleteBucketWebsite",
+      "s3:List*",
+      "s3:Get*",
+      "s3:Put*",
+      "s3:Delete*",
     ]
-    resources = ["arn:aws:s3:::*"]
+    resources = ["arn:aws:s3:::${var.project_name}-*"]
   }
 
   # After first bootstrap apply, GHA can mutate these services (still run initial apply with admin once if needed)
