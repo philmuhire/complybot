@@ -13,6 +13,18 @@ export type AnalyzePayload = {
   jurisdictions: string[];
 };
 
+/** Nested under `incident.final_report` from the API; mirrors backend pipeline bundle. */
+export type PipelineBundle = {
+  jurisdictions?: string[];
+  jurisdiction_hint?: string;
+  log_intelligence?: Record<string, unknown>;
+  retrieval?: Record<string, unknown>;
+  risk?: Record<string, unknown>;
+  obligations?: Record<string, unknown>;
+  escalation?: Record<string, unknown>;
+  critic?: Record<string, unknown>;
+};
+
 export type IncidentDetailResponse = {
   incident: {
     id: string;

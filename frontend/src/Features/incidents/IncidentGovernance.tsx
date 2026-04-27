@@ -11,6 +11,11 @@ import { Textarea } from "@/shared/components/ui/Textarea";
 import { Spinner } from "@/shared/components/feedback/Spinner";
 
 import {
+  CaseReport,
+  extractPipelineBundle,
+  pipelineBundleFromAnalyze,
+} from "./CaseReport";
+import {
   useAnalyzeIncident,
   useIncidentDetail,
   useIncidentList,
@@ -70,11 +75,12 @@ export function IncidentGovernance() {
     analyze.mutate(
       { raw_input: r.data.raw_input, jurisdictions: r.data.jurisdictions },
       {
-      onSuccess: (data: unknown) => {
-        const d = data as { incident_id?: string };
-        if (d?.incident_id) setSelectedId(d.incident_id);
+        onSuccess: (data: unknown) => {
+          const d = data as { incident_id?: string };
+          if (d?.incident_id) setSelectedId(d.incident_id);
+        },
       },
-    });
+    );
   };
 
   return (
@@ -176,10 +182,30 @@ export function IncidentGovernance() {
               {(analyze.error as Error).message}
             </p>
           )}
-          {analyze.isSuccess && (
-            <div className="mt-4 space-y-2">
+          {analyze.isSuccess && analyze.data && (
+            <div className="mt-4 space-y-4">
               <Badge tone="ok">Completed</Badge>
-              <JsonPane value={analyze.data} />
+              <CaseReport
+                bundle={pipelineBundleFromAnalyze(analyze.data)}
+                incidentId={
+                  (analyze.data as { incident_id?: string }).incident_id ?? ""
+                }
+                status={
+                  (analyze.data as { pipeline?: { critic?: { passed?: boolean } } })
+                    .pipeline?.critic?.passed === false
+                    ? "needs_review"
+                    : "completed"
+                }
+                deadlineAt={null}
+              />
+              <details className="group rounded-lg border border-zinc-800 bg-zinc-950/40">
+                <summary className="cursor-pointer select-none px-3 py-2 text-xs text-zinc-500 hover:text-zinc-400">
+                  Raw pipeline JSON
+                </summary>
+                <div className="border-t border-zinc-800 p-2">
+                  <JsonPane value={analyze.data} />
+                </div>
+              </details>
             </div>
           )}
         </Card>
@@ -234,44 +260,65 @@ export function IncidentGovernance() {
       </div>
 
       {selectedId && (
-        <Card>
-          <div className="mb-4 flex flex-wrap items-center gap-2">
-            <Badge tone="warn">Traceability</Badge>
-            <span className="text-sm font-medium text-zinc-200">Selected case audit trail</span>
-          </div>
-          {detail.isLoading && <Spinner label="Loading detail" />}
+        <div className="flex flex-col gap-6">
+          {detail.isLoading && <Spinner label="Loading case detail" />}
           {detail.data && (
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div>
-                <h3 className="mb-2 text-xs uppercase tracking-wide text-zinc-500">
-                  Incident record
-                </h3>
-                <JsonPane value={detail.data.incident} />
-              </div>
-              <div>
-                <h3 className="mb-2 text-xs uppercase tracking-wide text-zinc-500">
-                  Agent traces
-                </h3>
-                <div className="max-h-[420px] space-y-3 overflow-auto">
-                  {detail.data.traces.map((t) => (
-                    <div
-                      key={`${t.agent_name}-${t.created_at}`}
-                      className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-3 text-xs"
-                    >
-                      <div className="flex justify-between gap-2 text-[11px] text-zinc-400">
-                        <span className="font-semibold text-emerald-300">{t.agent_name}</span>
-                        <span>{t.latency_ms?.toFixed?.(0) ?? "—"} ms</span>
-                      </div>
-                      <p className="mt-2 line-clamp-6 whitespace-pre-wrap font-mono text-[10px] text-zinc-400">
-                        {t.output_summary}
-                      </p>
-                    </div>
-                  ))}
+            <>
+              <Card className="p-6">
+                <div className="mb-6 flex flex-wrap items-center gap-2">
+                  <Badge tone="ok">Case summary</Badge>
+                  <span className="text-sm font-medium text-zinc-200">
+                    Structured report for selected incident
+                  </span>
                 </div>
-              </div>
-            </div>
+                <CaseReport
+                  bundle={extractPipelineBundle(detail.data.incident.final_report)}
+                  incidentId={detail.data.incident.id}
+                  status={detail.data.incident.status}
+                  deadlineAt={detail.data.incident.deadline_at}
+                />
+              </Card>
+
+              <Card>
+                <div className="mb-4 flex flex-wrap items-center gap-2">
+                  <Badge tone="warn">Traceability</Badge>
+                  <span className="text-sm font-medium text-zinc-200">
+                    Raw record &amp; agent traces
+                  </span>
+                </div>
+                <div className="grid gap-6 lg:grid-cols-2">
+                  <div>
+                    <h3 className="mb-2 text-xs uppercase tracking-wide text-zinc-500">
+                      Incident record
+                    </h3>
+                    <JsonPane value={detail.data.incident} />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-xs uppercase tracking-wide text-zinc-500">
+                      Agent traces
+                    </h3>
+                    <div className="max-h-[420px] space-y-3 overflow-auto">
+                      {detail.data.traces.map((t) => (
+                        <div
+                          key={`${t.agent_name}-${t.created_at}`}
+                          className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-3 text-xs"
+                        >
+                          <div className="flex justify-between gap-2 text-[11px] text-zinc-400">
+                            <span className="font-semibold text-emerald-300">{t.agent_name}</span>
+                            <span>{t.latency_ms?.toFixed?.(0) ?? "—"} ms</span>
+                          </div>
+                          <p className="mt-2 line-clamp-6 whitespace-pre-wrap font-mono text-[10px] text-zinc-400">
+                            {t.output_summary}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </>
           )}
-        </Card>
+        </div>
       )}
     </div>
   );
