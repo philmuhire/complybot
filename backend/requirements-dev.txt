@@ -1,0 +1,4 @@
+# Dev / test extras (install from repo root: pip install -r backend/requirements-dev.txt)
+-r requirements.txt
+pytest>=8.0.0
+pytest-asyncio>=0.24.0
