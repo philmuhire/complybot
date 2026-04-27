@@ -2,6 +2,8 @@
 
 [Live Production](https://dsndxudm7ut8b.cloudfront.net/)
 
+Autonomous Cybersecurity Compliance & Incident Escalation AI — a multi-agent platform that takes security incidents (logs/narratives), runs them through specialized AI agents, and helps with compliance, risk, reporting deadlines, and escalation using RAG over regulations (e.g. GDPR-style, NIST CSF, ISO 27001, ENISA, internal policy).
+
 Multi-agent governance engine: FastAPI + OpenAI Agents SDK + MCP stdio tools + PostgreSQL/pgvector + Next.js dashboard (Clerk, TanStack Query, Zustand) + Observability(OpenAI Agents SDK traces + Langfuse) + GitHub Actions CI/CD + Production deployment on AWS.
 
 ## Architecture
