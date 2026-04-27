@@ -2,7 +2,7 @@
 
 [Live Production](https://dsndxudm7ut8b.cloudfront.net/)
 
-Multi-agent governance engine (**not a chatbot**): FastAPI + OpenAI Agents SDK + MCP stdio tools + PostgreSQL/pgvector + Next.js dashboard (Clerk, TanStack Query, Zustand).
+Multi-agent governance engine: FastAPI + OpenAI Agents SDK + MCP stdio tools + PostgreSQL/pgvector + Next.js dashboard (Clerk, TanStack Query, Zustand).
 
 ## Architecture
 
