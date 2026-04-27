@@ -51,7 +51,7 @@ def merge_jurisdiction_labels(
     if not out:
         return None
     s = ",".join(out)
-    return s[:MAX_JURISDICTION_CSV] if s else None
+    return s[:MAX_JURISDICTION_CSV]
 
 
 def split_jurisdiction_csv(value: str | None) -> set[str]:

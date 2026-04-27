@@ -7,8 +7,8 @@ import { Card } from "@/shared/components/ui/Card";
 
 import type { PipelineBundle } from "./incidents.types";
 
-/** `/api/incidents/analyze` returns `{ pipeline }` at top level (not wrapped in final_report). */
-export function pipelineBundleFromAnalyze(data: unknown): PipelineBundle | null {
+/** Reads `pipeline` from an analyze response body or from `final_report` on a stored incident. */
+export function extractPipelineBundle(data: unknown): PipelineBundle | null {
   if (!data || typeof data !== "object") return null;
   const p = (data as { pipeline?: unknown }).pipeline;
   if (!p || typeof p !== "object") return null;
@@ -29,13 +29,6 @@ function str(v: unknown): string {
   if (v === null || v === undefined) return "—";
   if (typeof v === "string") return v || "—";
   return String(v);
-}
-
-export function extractPipelineBundle(finalReport: unknown): PipelineBundle | null {
-  if (!finalReport || typeof finalReport !== "object") return null;
-  const p = (finalReport as { pipeline?: unknown }).pipeline;
-  if (!p || typeof p !== "object") return null;
-  return p as PipelineBundle;
 }
 
 function buildNextSteps(

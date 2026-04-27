@@ -20,14 +20,10 @@ async def list_incidents(
     _user: dict = Depends(clerk_user),
 ):
     rows = (
-        (
-            await session.execute(
-                select(Incident).order_by(Incident.created_at.desc()).limit(100)
-            )
+        await session.execute(
+            select(Incident).order_by(Incident.created_at.desc()).limit(100)
         )
-        .scalars()
-        .all()
-    )
+    ).scalars().all()
     return [
         IncidentSummary(
             id=r.id,
@@ -52,14 +48,8 @@ async def get_incident(
     if not inc:
         raise HTTPException(404, "Incident not found")
     traces = (
-        (
-            await session.execute(
-                select(AgentTrace).where(AgentTrace.incident_id == incident_id)
-            )
-        )
-        .scalars()
-        .all()
-    )
+        await session.execute(select(AgentTrace).where(AgentTrace.incident_id == incident_id))
+    ).scalars().all()
     return {
         "incident": {
             "id": inc.id,

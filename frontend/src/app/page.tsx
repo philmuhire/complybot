@@ -9,7 +9,7 @@ export default function HomePage() {
         <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-emerald-400/90">
-              Governance · Not a chatbot
+              Cybersecurity Governance
             </p>
             <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
               Autonomous Cybersecurity Compliance &amp; Incident Escalation AI

@@ -10,11 +10,7 @@ import { Card } from "@/shared/components/ui/Card";
 import { Textarea } from "@/shared/components/ui/Textarea";
 import { Spinner } from "@/shared/components/feedback/Spinner";
 
-import {
-  CaseReport,
-  extractPipelineBundle,
-  pipelineBundleFromAnalyze,
-} from "./CaseReport";
+import { CaseReport, extractPipelineBundle } from "./CaseReport";
 import {
   useAnalyzeIncident,
   useIncidentDetail,
@@ -70,10 +66,9 @@ export function IncidentGovernance() {
   };
 
   const run = () => {
-    const r = analyzeBodySchema.safeParse({ raw_input: input, jurisdictions: jurSelected });
-    if (!r.success) return;
+    if (!parsed.success) return;
     analyze.mutate(
-      { raw_input: r.data.raw_input, jurisdictions: r.data.jurisdictions },
+      { raw_input: parsed.data.raw_input, jurisdictions: parsed.data.jurisdictions },
       {
         onSuccess: (data: unknown) => {
           const d = data as { incident_id?: string };
@@ -92,7 +87,7 @@ export function IncidentGovernance() {
         <p className="max-w-3xl text-sm leading-relaxed text-zinc-400">
           Submit security logs or incident narratives. The orchestrator routes through Log
           Intelligence → RAG retrieval → Risk → Obligations → Escalation → Critic, with MCP tools
-          for traceable actions — not a chatbot.
+          for traceable actions.
         </p>
       </div>
 
@@ -186,7 +181,7 @@ export function IncidentGovernance() {
             <div className="mt-4 space-y-4">
               <Badge tone="ok">Completed</Badge>
               <CaseReport
-                bundle={pipelineBundleFromAnalyze(analyze.data)}
+                bundle={extractPipelineBundle(analyze.data)}
                 incidentId={
                   (analyze.data as { incident_id?: string }).incident_id ?? ""
                 }

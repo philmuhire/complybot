@@ -76,11 +76,10 @@ def _parse_pipeline_jurisdictions(
         jurisdiction=jurisdiction_hint,
         jurisdictions=jurisdictions,
     )
-    if not merged:
+    jlist = [p.strip() for p in merged.split(",") if p.strip()] if merged else []
+    if not jlist:
         jlist = ["EU"]
-    else:
-        jlist = [p.strip() for p in merged.split(",") if p.strip()]
-    return jlist, (jlist[0] if jlist else "EU")
+    return jlist, jlist[0]
 
 
 def _mcp_stdio_server() -> MCPServerStdio:
@@ -387,7 +386,6 @@ async def run_incident_pipeline(
             session.add(ev)
             await session.commit()
 
-        # Langfuse observe context is optional — keys from env
         return {"ok": True, "incident_id": incident_id, "pipeline": bundle}
 
 

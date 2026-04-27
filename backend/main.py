@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -16,7 +17,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.routers import framework_documents, incidents, jurisdictions
-from compliance_core.config import get_settings, sync_sdk_environ_from_settings
+from compliance_core.config import sync_sdk_environ_from_settings
 from compliance_core.database import init_db
 
 sync_sdk_environ_from_settings()
@@ -30,14 +31,13 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(
     title="Cyber Compliance AI Engine",
-    description="Multi-agent governance API — not a chatbot.",
+    description="Multi-agent governance API.",
     lifespan=lifespan,
 )
 
-_settings = get_settings()
 _origins = [
     o.strip()
-    for o in __import__("os").environ.get("CORS_ORIGINS", "http://localhost:3000").split(",")
+    for o in os.environ.get("CORS_ORIGINS", "http://localhost:3000").split(",")
     if o.strip()
 ]
 

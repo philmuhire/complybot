@@ -18,7 +18,7 @@ class AnalyzeBody(BaseModel):
     def _ensure_jurisdictions(self) -> "AnalyzeBody":
         seen: set[str] = set()
         out: list[str] = []
-        for j in self.jurisdictions or []:
+        for j in self.jurisdictions:
             s = (j or "").strip()[:128]
             if not s:
                 continue
