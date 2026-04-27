@@ -5,6 +5,8 @@ export type FrameworkDocument = {
   version: string;
   jurisdiction: string | null;
   chunk_count: number;
+  has_original?: boolean;
+  original_filename?: string | null;
 };
 
 export type FrameworkIngest = {
@@ -12,5 +14,7 @@ export type FrameworkIngest = {
   framework: string;
   version: string;
   jurisdiction?: string;
+  /** Sent as JSON; merged on the server with `jurisdiction` */
+  jurisdictions?: string[];
   text: string;
 };

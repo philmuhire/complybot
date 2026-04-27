@@ -24,6 +24,11 @@ async def search_regulations(
     jurisdiction: str | None = None,
     framework: str | None = None,
 ) -> str:
+    """
+    RAG over regulation chunks. `jurisdiction` can be a single tag or comma‑separated tags
+    to match indexed regulations (including multi‑tag rows); overlaps with the incident
+    `jurisdictions` the pipeline passes you.
+    """
     async with SessionLocal() as session:
         svc = ComplianceToolService(session)
         rows = await svc.search_regulations(query, jurisdiction=jurisdiction, framework=framework)

@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
+import { useJurisdictionHints } from "@/Features/framework/hooks";
 import { analyzeBodySchema } from "@/Features/incidents/incidents.schema";
 import { Badge } from "@/shared/components/ui/Badge";
 import { Button } from "@/shared/components/ui/Button";
@@ -26,21 +27,49 @@ function JsonPane({ value }: { value: unknown }) {
 
 export function IncidentGovernance() {
   const [input, setInput] = useState("");
-  const [jurisdiction, setJurisdiction] = useState<
-    "EU" | "US-FED" | "UK" | "OTHER"
-  >("EU");
+  const [jurSelected, setJurSelected] = useState<string[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const jursInitialized = useRef(false);
+  const jurisdictionHints = useJurisdictionHints();
 
   const list = useIncidentList();
   const detail = useIncidentDetail(selectedId);
   const analyze = useAnalyzeIncident();
 
-  const parsed = useMemo(() => analyzeBodySchema.safeParse({ raw_input: input, jurisdiction_hint: jurisdiction }), [input, jurisdiction]);
+  useEffect(() => {
+    if (jursInitialized.current || jurisdictionHints.isLoading) return;
+    if (!jurisdictionHints.isFetched) return;
+    jursInitialized.current = true;
+    const d = jurisdictionHints.data;
+    if (d?.length) {
+      setJurSelected(d.includes("EU") ? ["EU"] : [d[0]]);
+    } else {
+      setJurSelected([]);
+    }
+  }, [jurisdictionHints.data, jurisdictionHints.isFetched, jurisdictionHints.isLoading]);
+
+  const parsed = useMemo(
+    () => analyzeBodySchema.safeParse({ raw_input: input, jurisdictions: jurSelected }),
+    [input, jurSelected],
+  );
+
+  const toggleJurHint = (h: string) => {
+    setJurSelected((s) => {
+      const on = s.some((x) => x.toLowerCase() === h.toLowerCase());
+      if (on) {
+        const next = s.filter((x) => x.toLowerCase() !== h.toLowerCase());
+        return next.length ? next : s;
+      }
+      return [...s, h];
+    });
+  };
 
   const run = () => {
-    const r = analyzeBodySchema.safeParse({ raw_input: input, jurisdiction_hint: jurisdiction });
+    const r = analyzeBodySchema.safeParse({ raw_input: input, jurisdictions: jurSelected });
     if (!r.success) return;
-    analyze.mutate(r.data, {
+    analyze.mutate(
+      { raw_input: r.data.raw_input, jurisdictions: r.data.jurisdictions },
+      {
       onSuccess: (data: unknown) => {
         const d = data as { incident_id?: string };
         if (d?.incident_id) setSelectedId(d.incident_id);
@@ -75,33 +104,62 @@ export function IncidentGovernance() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Paste IAM trails, IDS alerts, ticket narrative, approximate record counts..."
           />
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
+          <div className="mt-4 space-y-3">
             <div>
-              <label className="mb-1 block text-xs uppercase tracking-wide text-zinc-500">
-                Jurisdiction hint
-              </label>
-              <select
-                value={jurisdiction}
-                onChange={(e) =>
-                  setJurisdiction(e.target.value as typeof jurisdiction)
-                }
-                className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-sm text-zinc-100"
-              >
-                <option value="EU">EU / EEA</option>
-                <option value="US-FED">US Federal sector-style</option>
-                <option value="UK">UK</option>
-                <option value="OTHER">Other / multi</option>
-              </select>
+              <span className="mb-1 block text-xs uppercase tracking-wide text-zinc-500">
+                Jurisdictions
+              </span>
+              <p className="mb-2 text-xs text-zinc-500">
+                Select one or more tags that already exist on regulation rows in the database.
+                Framework uploads and seeds define which labels appear here.
+              </p>
+              {jurisdictionHints.isLoading && (
+                <p className="text-xs text-zinc-500">Loading jurisdiction tags from regulations…</p>
+              )}
+              {jurisdictionHints.isFetched &&
+                jurisdictionHints.data &&
+                jurisdictionHints.data.length === 0 && (
+                  <p className="rounded-lg border border-amber-500/30 bg-amber-950/25 px-3 py-2 text-xs text-amber-200/90">
+                    No jurisdiction tags in the regulations index yet. Seed the database or add a
+                    framework document with jurisdictions before running the pipeline.
+                  </p>
+                )}
+              {jurisdictionHints.data && jurisdictionHints.data.length > 0 && (
+                <div className="max-h-32 overflow-y-auto rounded-lg border border-zinc-800/80 bg-zinc-900/40 p-3">
+                  <p className="mb-2 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+                    Distinct values from regulations
+                  </p>
+                  <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    {jurisdictionHints.data.map((h) => {
+                      const on = jurSelected.some(
+                        (x) => x.toLowerCase() === h.toLowerCase(),
+                      );
+                      return (
+                        <label
+                          key={h}
+                          className="flex cursor-pointer items-center gap-2 text-xs text-zinc-300"
+                        >
+                          <input
+                            type="checkbox"
+                            className="rounded border-zinc-600"
+                            checked={on}
+                            onChange={() => toggleJurHint(h)}
+                          />
+                          {h}
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex items-end">
-              <Button
-                className="w-full"
-                disabled={!parsed.success || analyze.isPending}
-                onClick={run}
-              >
-                Run governance pipeline
-              </Button>
-            </div>
+            <Button
+              className="w-full sm:max-w-xs"
+              disabled={!parsed.success || analyze.isPending}
+              onClick={run}
+            >
+              Run governance pipeline
+            </Button>
           </div>
           {!parsed.success && input.length > 0 && (
             <p className="mt-2 text-xs text-rose-400">

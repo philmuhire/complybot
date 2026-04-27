@@ -12,5 +12,15 @@ export function frameworkApi(client: AxiosInstance) {
       client.delete<{ ok: boolean; deleted: number }>(
         `/api/framework-documents/${userDocumentId}`,
       ),
+    openOriginal: (userDocumentId: string) =>
+      client.get<Blob>(`/api/framework-documents/${userDocumentId}/original`, {
+        responseType: "blob",
+      }),
+  };
+}
+
+export function jurisdictionHintsApi(client: AxiosInstance) {
+  return {
+    list: () => client.get<{ items: string[] }>("/api/jurisdictions/hints"),
   };
 }

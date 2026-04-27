@@ -10,7 +10,7 @@ export type IncidentSummary = {
 
 export type AnalyzePayload = {
   raw_input: string;
-  jurisdiction_hint: string;
+  jurisdictions: string[];
 };
 
 export type IncidentDetailResponse = {

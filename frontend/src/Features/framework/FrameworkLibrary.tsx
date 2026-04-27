@@ -9,10 +9,12 @@ import { Textarea } from "@/shared/components/ui/Textarea";
 import { Spinner } from "@/shared/components/feedback/Spinner";
 
 import {
+  useFrameworkApi,
   useFrameworkDelete,
   useFrameworkIngest,
   useFrameworkList,
   useFrameworkUpload,
+  useJurisdictionHints,
 } from "./hooks";
 
 const inputClass =
@@ -31,10 +33,12 @@ export function FrameworkLibrary() {
   const [title, setTitle] = useState("");
   const [framework, setFramework] = useState("Internal");
   const [version, setVersion] = useState("1.0");
-  const [jurisdiction, setJurisdiction] = useState("EU");
+  const [jurSelected, setJurSelected] = useState<string[]>([]);
+  const [jurInput, setJurInput] = useState("");
   const [text, setText] = useState("");
   const [pasteExtra, setPasteExtra] = useState("");
   const [fileSelected, setFileSelected] = useState(false);
+  const [previewingId, setPreviewingId] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const fileId = useId();
 
@@ -42,17 +46,63 @@ export function FrameworkLibrary() {
   const ingest = useFrameworkIngest();
   const upload = useFrameworkUpload();
   const del = useFrameworkDelete();
+  const frameworkApi = useFrameworkApi();
+  const jurisdictionHints = useJurisdictionHints();
+  const jurDatalistId = useId();
 
   const resetIngestForm = useCallback(() => {
     setTitle("");
     setFramework("Internal");
     setVersion("1.0");
-    setJurisdiction("EU");
+    setJurSelected([]);
+    setJurInput("");
     setText("");
     setPasteExtra("");
     setFileSelected(false);
     if (fileRef.current) fileRef.current.value = "";
   }, []);
+
+  const toggleJurHint = (h: string) => {
+    setJurSelected((s) => {
+      const on = s.some((x) => x.toLowerCase() === h.toLowerCase());
+      if (on) return s.filter((x) => x.toLowerCase() !== h.toLowerCase());
+      return [...s, h];
+    });
+  };
+
+  const addJurFromInput = () => {
+    const t = jurInput.trim();
+    if (!t) return;
+    if (jurSelected.some((x) => x.toLowerCase() === t.toLowerCase())) {
+      setJurInput("");
+      return;
+    }
+    setJurSelected((s) => [...s, t]);
+    setJurInput("");
+  };
+
+  const removeJur = (label: string) => {
+    setJurSelected((s) => s.filter((x) => x.toLowerCase() !== label.toLowerCase()));
+  };
+
+  const openOriginalPreview = async (id: string) => {
+    setPreviewingId(id);
+    try {
+      const res = await frameworkApi.openOriginal(id);
+      const blob = res.data;
+      const ct =
+        (typeof res.headers["content-type"] === "string" && res.headers["content-type"]) ||
+        "application/octet-stream";
+      const b = blob.type ? blob : new Blob([await blob.arrayBuffer()], { type: ct });
+      const url = URL.createObjectURL(b);
+      window.open(url, "_blank", "noopener,noreferrer");
+      window.setTimeout(() => URL.revokeObjectURL(url), 120_000);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setPreviewingId(null);
+    }
+  };
 
   const canPaste = title.trim() && framework.trim() && text.trim();
   const canUpload =
@@ -65,7 +115,7 @@ export function FrameworkLibrary() {
         title: title.trim(),
         framework: framework.trim(),
         version: version.trim() || "1.0",
-        jurisdiction: jurisdiction.trim() || undefined,
+        ...(jurSelected.length ? { jurisdictions: jurSelected } : {}),
         text: text.trim(),
       },
       {
@@ -85,7 +135,9 @@ export function FrameworkLibrary() {
     form.set("title", title.trim());
     form.set("framework", framework.trim());
     form.set("version", version.trim() || "1.0");
-    if (jurisdiction.trim()) form.set("jurisdiction", jurisdiction.trim());
+    for (const j of jurSelected) {
+      form.append("jurisdictions", j);
+    }
     if (f) form.set("file", f);
     if (pasteExtra.trim()) form.set("paste", pasteExtra.trim());
     upload.mutate(form, {
@@ -106,12 +158,7 @@ export function FrameworkLibrary() {
           <Badge tone="ok">RAG</Badge>
         </div>
         <p className="max-w-2xl text-sm leading-relaxed text-zinc-400">
-          Add policy or control-framework text. We chunk, embed, and add it to the same index as
-          seeded regulations so{" "}
-          <code className="rounded border border-zinc-700/80 bg-zinc-900 px-1.5 py-0.5 text-[0.8rem] text-emerald-200/90">
-            search_regulations
-          </code>{" "}
-          can retrieve it in the incident pipeline.
+          Add policy or control-framework text.
         </p>
       </div>
 
@@ -218,20 +265,95 @@ export function FrameworkLibrary() {
                   onChange={(e) => setVersion(e.target.value)}
                 />
               </div>
-              <div>
-                <label
-                  htmlFor={jurId}
+              <div className="sm:col-span-2">
+                <span
+                  id={jurId}
                   className="mb-1.5 block text-xs font-medium text-zinc-400"
                 >
-                  Jurisdiction <span className="font-normal text-zinc-600">(optional)</span>
-                </label>
-                <input
-                  id={jurId}
-                  className={inputClass}
-                  value={jurisdiction}
-                  onChange={(e) => setJurisdiction(e.target.value)}
-                  placeholder="EU, US, UK…"
-                />
+                  Jurisdictions <span className="font-normal text-zinc-600">(optional)</span>
+                </span>
+                <p className="mb-2 text-xs text-zinc-500">
+                  Choose tags already used in the regulations index, or type a custom label. Multiple
+                  tags are stored on each chunk for retrieval.
+                </p>
+                {jurSelected.length > 0 && (
+                  <div className="mb-2 flex flex-wrap gap-1.5">
+                    {jurSelected.map((j) => (
+                      <button
+                        type="button"
+                        key={j}
+                        onClick={() => removeJur(j)}
+                        className="inline-flex items-center gap-1 rounded-md border border-zinc-600/80 bg-zinc-800/60 px-2 py-0.5 text-xs text-zinc-200 hover:border-rose-500/50 hover:text-rose-200"
+                        title="Remove"
+                      >
+                        {j}
+                        <span className="text-zinc-500" aria-hidden>
+                          ×
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {jurisdictionHints.data && jurisdictionHints.data.length > 0 && (
+                  <div className="mb-3 max-h-28 overflow-y-auto rounded-lg border border-zinc-800/80 bg-zinc-900/40 p-2">
+                    <p className="mb-1.5 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+                      From your index
+                    </p>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+                      {jurisdictionHints.data.map((h) => {
+                        const on = jurSelected.some(
+                          (x) => x.toLowerCase() === h.toLowerCase(),
+                        );
+                        return (
+                          <label
+                            key={h}
+                            className="flex cursor-pointer items-center gap-1.5 text-xs text-zinc-300"
+                          >
+                            <input
+                              type="checkbox"
+                              className="rounded border-zinc-600"
+                              checked={on}
+                              onChange={() => toggleJurHint(h)}
+                            />
+                            {h}
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-end">
+                  <div className="min-w-0 flex-1">
+                    <label
+                      htmlFor={jurDatalistId}
+                      className="mb-1.5 block text-[10px] font-medium text-zinc-500"
+                    >
+                      Type or pick a suggestion
+                    </label>
+                    <input
+                      id={jurDatalistId}
+                      className={inputClass}
+                      list={jurDatalistId + "-list"}
+                      value={jurInput}
+                      onChange={(e) => setJurInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          addJurFromInput();
+                        }
+                      }}
+                      placeholder="e.g. California, EEA…"
+                    />
+                    <datalist id={jurDatalistId + "-list"}>
+                      {jurisdictionHints.data?.map((h) => (
+                        <option key={h} value={h} />
+                      ))}
+                    </datalist>
+                  </div>
+                  <Button type="button" variant="ghost" className="shrink-0" onClick={addJurFromInput}>
+                    Add tag
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -386,14 +508,27 @@ export function FrameworkLibrary() {
                     <span className="text-emerald-500/80">{d.chunk_count} chunks</span>
                   </div>
                 </div>
-                <Button
-                  variant="ghost"
-                  className="shrink-0 border border-rose-500/20 text-rose-300 hover:border-rose-500/40 hover:bg-rose-950/30"
-                  disabled={del.isPending}
-                  onClick={() => del.mutate(d.user_document_id)}
-                >
-                  Remove
-                </Button>
+                <div className="flex shrink-0 flex-col items-stretch gap-2 sm:flex-row sm:items-center">
+                  {d.has_original && (
+                    <Button
+                      variant="ghost"
+                      className="text-xs text-emerald-200/90 hover:bg-emerald-950/30"
+                      title={d.original_filename ?? "Open stored PDF or document in a new tab"}
+                      disabled={previewingId === d.user_document_id}
+                      onClick={() => void openOriginalPreview(d.user_document_id)}
+                    >
+                      {previewingId === d.user_document_id ? "Opening…" : "Preview file"}
+                    </Button>
+                  )}
+                  <Button
+                    variant="ghost"
+                    className="border border-rose-500/20 text-rose-300 hover:border-rose-500/40 hover:bg-rose-950/30"
+                    disabled={del.isPending}
+                    onClick={() => del.mutate(d.user_document_id)}
+                  >
+                    Remove
+                  </Button>
+                </div>
               </li>
             ))}
           </ul>

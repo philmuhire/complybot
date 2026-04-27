@@ -19,10 +19,15 @@ class ComplianceToolService:
         self,
         query: str,
         jurisdiction: str | None = None,
+        jurisdictions: list[str] | None = None,
         framework: str | None = None,
     ) -> list[dict]:
         return await hybrid_search(
-            self.session, query, jurisdiction=jurisdiction, framework=framework
+            self.session,
+            query,
+            jurisdiction=jurisdiction,
+            jurisdictions=jurisdictions,
+            framework=framework,
         )
 
     async def get_incident_history(self, incident_id: str) -> dict[str, Any]:

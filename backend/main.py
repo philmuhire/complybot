@@ -15,7 +15,7 @@ for _p in (_CAPSTONE_ROOT, _BACKEND_ROOT):
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.routers import framework_documents, incidents
+from backend.routers import framework_documents, incidents, jurisdictions
 from compliance_core.config import get_settings, sync_sdk_environ_from_settings
 from compliance_core.database import init_db
 
@@ -51,6 +51,7 @@ app.add_middleware(
 
 app.include_router(incidents.router)
 app.include_router(framework_documents.router)
+app.include_router(jurisdictions.router)
 
 
 @app.get("/health")

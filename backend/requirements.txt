@@ -3,6 +3,8 @@ uvicorn[standard]>=0.32.0
 sqlalchemy[asyncio]>=2.0.36
 greenlet>=3.0.0
 asyncpg>=0.30.0
+# Sync driver for Alembic (asyncpg is async-only; env.py rewrites the app URL to use this).
+psycopg[binary]>=3.1.0
 pgvector>=0.3.6
 openai>=1.60.0
 openai-agents>=0.14.0

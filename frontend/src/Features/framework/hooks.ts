@@ -6,7 +6,7 @@ import { useMemo } from "react";
 
 import { createAuthedClient } from "@/shared/api/authed-client";
 
-import { frameworkApi } from "./api";
+import { frameworkApi, jurisdictionHintsApi } from "./api";
 import type { FrameworkIngest } from "./framework.types";
 
 export function useFrameworkApi() {
@@ -16,6 +16,18 @@ export function useFrameworkApi() {
     [getToken],
   );
   return useMemo(() => frameworkApi(client), [client]);
+}
+
+export function useJurisdictionHints() {
+  const { getToken } = useAuth();
+  const client = useMemo(
+    () => createAuthedClient(() => getToken()),
+    [getToken],
+  );
+  return useQuery({
+    queryKey: ["jurisdiction-hints"],
+    queryFn: async () => (await jurisdictionHintsApi(client).list()).data.items,
+  });
 }
 
 export function useFrameworkList() {
@@ -33,6 +45,7 @@ export function useFrameworkIngest() {
     mutationFn: (body: FrameworkIngest) => api.ingest(body),
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ["framework-documents"] });
+      void qc.invalidateQueries({ queryKey: ["jurisdiction-hints"] });
     },
   });
 }
@@ -44,6 +57,7 @@ export function useFrameworkUpload() {
     mutationFn: (form: FormData) => api.upload(form),
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: ["framework-documents"] });
+      void qc.invalidateQueries({ queryKey: ["jurisdiction-hints"] });
     },
   });
 }

@@ -20,8 +20,10 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    # Remote Supabase only: Project Settings → Database. No default; see .env.example
-    # (use direct 5432 or the pooler 6543 — the code adapts asyncpg for the pooler).
+    # Project Settings → Database (or local Postgres in dev). This is the only supported
+    # database URL variable — `DATABASE_URL` and other names are not read. Alembic uses
+    # the same value, rewritten to a sync driver in `alembic/env.py`. Direct 5432 or
+    # pooler 6543: asyncpg connect args adapt for the pooler.
     database_url: str = Field(
         ...,
         min_length=1,

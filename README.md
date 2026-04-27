@@ -33,11 +33,11 @@ The app expects **PostgreSQL with the [`pgvector`](https://github.com/pgvector/p
 ```bash
 docker compose up -d
 cp .env.example .env
-# Match DATABASE_URL to Compose (default user/db/password from docker-compose.yml):
+# Set `SUPABASE_DATABASE_URL` in `.env` to match Compose (default user/db/password from `docker-compose.yml`):
 # postgresql+asyncpg://compliance:compliance@localhost:5432/compliance
 ```
 
-If `seed_db` fails with **extension "vector" is not available**, your `DATABASE_URL` is pointing at Postgres **without** pgvector; fix the URL or install the extension on that server.
+If `seed_db` fails with **extension "vector" is not available**, your `SUPABASE_DATABASE_URL` is pointing at Postgres **without** pgvector; fix the URL or install the extension on that server.
 
 Create schema + seed regulation embeddings:
 
@@ -82,7 +82,7 @@ PYTHONPATH=. python backend/scripts/evaluate.py --live      # first 5 cases via 
 
 | Variable | Purpose |
 |----------|---------|
-| `DATABASE_URL` | `postgresql+asyncpg://…` |
+| `SUPABASE_DATABASE_URL` | **Required** — `postgresql+asyncpg://…` (only database URL; used by the API and by Alembic) |
 | `OPENROUTER_API_KEY` | Primary key for chat + embeddings (`AsyncOpenAI` → OpenRouter) |
 | `OPENROUTER_BASE_URL` | Default `https://openrouter.ai/api/v1` |
 | `OPENAI_API_KEY` | **Only** OpenAI Agents SDK trace export to [OpenAI Traces](https://platform.openai.com/logs/trace); also **fallback** LLM key if `OPENROUTER_API_KEY` is unset |

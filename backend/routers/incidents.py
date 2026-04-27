@@ -107,6 +107,7 @@ async def analyze_incident(
         result = await run_incident_pipeline(
             incident_id=incident_id,
             raw_input=body.raw_input,
+            jurisdictions=body.jurisdictions,
             jurisdiction_hint=body.jurisdiction_hint,
         )
     except Exception as exc:

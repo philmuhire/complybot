@@ -41,7 +41,7 @@ export function useAnalyzeIncident() {
   const api = useIncidentsApi();
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: async (vars: { raw_input: string; jurisdiction_hint: string }) => {
+    mutationFn: async (vars: { raw_input: string; jurisdictions: string[] }) => {
       const res = await api.analyze(vars);
       return res.data;
     },

@@ -42,6 +42,7 @@ from backend.compliance_agents.output_models import (
     RiskOutput,
 )
 from compliance_core.config import get_settings
+from compliance_core.jurisdictions import merge_jurisdiction_labels
 from compliance_core.llm import get_agent_chat_model
 from compliance_core.database import SessionLocal
 from compliance_core.models import AgentTrace, Evaluation
@@ -65,6 +66,21 @@ except Exception:  # pragma: no cover
             return fn
 
         return deco
+
+
+def _parse_pipeline_jurisdictions(
+    jurisdiction_hint: str | None,
+    jurisdictions: list[str] | None,
+) -> tuple[list[str], str]:
+    merged = merge_jurisdiction_labels(
+        jurisdiction=jurisdiction_hint,
+        jurisdictions=jurisdictions,
+    )
+    if not merged:
+        jlist = ["EU"]
+    else:
+        jlist = [p.strip() for p in merged.split(",") if p.strip()]
+    return jlist, (jlist[0] if jlist else "EU")
 
 
 def _mcp_stdio_server() -> MCPServerStdio:
@@ -205,10 +221,18 @@ async def run_incident_pipeline(
     *,
     incident_id: str,
     raw_input: str,
-    jurisdiction_hint: str = "EU",
+    jurisdictions: list[str] | None = None,
+    jurisdiction_hint: str | None = None,
 ) -> dict[str, Any]:
     """Execute the full governance pipeline with MCP-backed tools."""
-    bundle: dict[str, Any] = {"incident_id": incident_id, "jurisdiction_hint": jurisdiction_hint}
+    jlist, j_primary = _parse_pipeline_jurisdictions(jurisdiction_hint, jurisdictions)
+    filter_csv = merge_jurisdiction_labels(jurisdiction=None, jurisdictions=jlist) or "EU"
+    bundle: dict[str, Any] = {
+        "incident_id": incident_id,
+        "jurisdictions": jlist,
+        "jurisdiction_hint": j_primary,
+        "jurisdiction_filter_csv": filter_csv,
+    }
 
     chat_model = get_agent_chat_model()
 
@@ -227,7 +251,9 @@ async def run_incident_pipeline(
             {
                 "incident_id": incident_id,
                 "log_intelligence": bundle["log_intelligence"],
-                "jurisdiction_hint": jurisdiction_hint,
+                "jurisdictions": jlist,
+                "jurisdiction_hint": j_primary,
+                "regulation_jurisdiction_filter": filter_csv,
             }
         )
         retrieval_out = await _run_agent(
@@ -258,7 +284,8 @@ async def run_incident_pipeline(
                 "log_intelligence": bundle["log_intelligence"],
                 "retrieval": bundle["retrieval"],
                 "risk": bundle["risk"],
-                "jurisdiction": jurisdiction_hint,
+                "jurisdiction": j_primary,
+                "jurisdictions": jlist,
                 "incident_type": bundle["log_intelligence"]["incident_type"],
             }
         )
@@ -293,7 +320,9 @@ async def run_incident_pipeline(
                     "log_intelligence": bundle["log_intelligence"],
                     "refinement_instructions": critic_out.refinement_instructions,
                     "previous_retrieval": bundle["retrieval"],
-                    "jurisdiction_hint": jurisdiction_hint,
+                    "jurisdictions": jlist,
+                    "jurisdiction_hint": j_primary,
+                    "regulation_jurisdiction_filter": filter_csv,
                 }
             )
             retrieval_out = await _run_agent(

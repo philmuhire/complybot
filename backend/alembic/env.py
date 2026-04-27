@@ -1,9 +1,19 @@
-from logging.config import fileConfig
+from __future__ import annotations
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
+import sys
+from logging.config import fileConfig
+from pathlib import Path
+
+from sqlalchemy import engine_from_config, pool
 
 from alembic import context
+
+# Allow `from compliance_core...` when the cwd is not the backend/ dir.
+_ROOT = Path(__file__).resolve().parents[1]
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
+from compliance_core.config import get_settings  # noqa: E402
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -13,6 +23,32 @@ config = context.config
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
+
+
+def _sync_url_from_app() -> str:
+    """App uses postgresql+asyncpg; Alembic needs a synchronous driver (psycopg v3)."""
+    url = get_settings().database_url
+    for old, new in (
+        ("postgresql+asyncpg://", "postgresql+psycopg://"),
+        ("postgres+asyncpg://", "postgresql+psycopg://"),
+    ):
+        if url.startswith(old):
+            return new + url[len(old) :]
+    # If already sync, or a custom scheme, use as configured.
+    return url
+
+
+def _apply_runtime_database_url() -> None:
+    """Override template driver:// URL with the app database URL from .env (SUPABASE_DATABASE_URL)."""
+    ini = (config.get_main_option("sqlalchemy.url") or "").strip()
+    if not ini or ini.startswith("driver://"):
+        config.set_main_option("sqlalchemy.url", _sync_url_from_app())
+    else:
+        if "+asyncpg" in ini:
+            config.set_main_option("sqlalchemy.url", ini.replace("+asyncpg", "+psycopg", 1))
+
+
+_apply_runtime_database_url()
 
 # add your model's MetaData object here
 # for 'autogenerate' support

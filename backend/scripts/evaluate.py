@@ -18,12 +18,12 @@ for _path in (_CAPSTONE, _BACK_END):
 async def score_case(case: dict, pipeline_fn) -> dict:
     """Invoke pipeline if available; stub returns placeholder."""
     narrative = case["narrative"]
-    juris = case.get("jurisdiction_hint", "EU")
     try:
         result = await pipeline_fn(
             incident_id=f"eval-{case['id']}",
             raw_input=narrative,
-            jurisdiction_hint=juris,
+            jurisdictions=case.get("jurisdictions"),
+            jurisdiction_hint=case.get("jurisdiction_hint", "EU"),
         )
         pipe = result.get("pipeline", {})
         log = pipe.get("log_intelligence", {})

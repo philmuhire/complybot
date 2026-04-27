@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 from uuid import uuid4
 
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, LargeBinary, String, Text
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -60,7 +60,7 @@ class Regulation(Base):
     clause_number: Mapped[str] = mapped_column(String(128))
     source_document: Mapped[str] = mapped_column(String(512))
     version: Mapped[str] = mapped_column(String(64))
-    jurisdiction: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    jurisdiction: Mapped[str | None] = mapped_column(String(256), nullable=True, index=True)
     user_document_id: Mapped[str | None] = mapped_column(
         String(36), nullable=True, index=True
     )
@@ -69,6 +69,16 @@ class Regulation(Base):
     )
     text: Mapped[str] = mapped_column(Text)
     embedding = mapped_column(Vector(1536), nullable=True)
+
+
+class FrameworkDocumentOriginal(Base):
+    __tablename__ = "framework_document_originals"
+
+    user_document_id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    owner_id: Mapped[str] = mapped_column(String(128), nullable=False, index=True)
+    original_filename: Mapped[str] = mapped_column(String(512), nullable=False)
+    content_type: Mapped[str] = mapped_column(String(256), nullable=False)
+    data: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
 
 
 class Evaluation(Base):
