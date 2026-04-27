@@ -9,7 +9,7 @@ Multi-agent governance engine: FastAPI + OpenAI Agents SDK + MCP stdio tools + P
 ## Architecture
 
 1. **Log Intelligence Agent** — structured incident facts from raw logs/narratives.
-2. **Compliance Retrieval Agent** — hybrid RAG (`pgvector` + lexical) over seeded regulations (GDPR-style, NIST CSF, ISO 27001, ENISA, internal policy excerpt).
+2. **Compliance Retrieval Agent** — hybrid RAG (`pgvector` + lexical) over embedded regulations (GDPR-style, NIST CSF, ISO 27001, ENISA, internal policy excerpt).
 3. **Risk Scoring Agent** — combines deterministic MCP `calculate_risk_score` + narrative rationale.
 4. **Regulatory Obligation Agent** — MCP `check_reporting_deadline` + obligation matrix.
 5. **Escalation Decision Agent** — escalation ladder + checklist + countdown.
