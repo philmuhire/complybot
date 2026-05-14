@@ -132,3 +132,179 @@ capstone/
 - Configure Langfuse project + sampling policies.
 
 See **`USER_GUIDE.md`** for analyst-facing workflows.
+
+# 🚀 Deployment Guide (AWS + Terraform + App Runner)
+
+This project uses **Terraform** for infrastructure provisioning on AWS.  
+Terraform remote state is stored in **S3**, with state locking handled via **DynamoDB**.
+
+---
+
+# 📦 One-Time Setup — Bootstrap Terraform Remote State
+
+Before running Terraform normally, you must create:
+
+- An **S3 bucket** → stores Terraform remote state
+- A **DynamoDB table** → handles state locking
+
+Run:
+
+```bash
+./scripts/bootstrap-terraform-state.sh
+```
+
+This script will:
+
+- Create the S3 bucket (if it doesn't exist)
+- Enable versioning
+- Create the DynamoDB lock table
+- Configure required backend settings
+
+> ⚠️ This step is required **only once per AWS account/region**.
+
+---
+
+# 🏗 Step 1 — Initialize Terraform
+
+After bootstrapping state:
+
+```bash
+terraform init
+```
+
+This will:
+
+- Configure the remote S3 backend
+- Connect to DynamoDB for locking
+- Download required Terraform providers
+
+---
+
+# 🌍 Step 2 — Create the Environment (Phase 1)
+
+Provision infrastructure:
+
+```bash
+terraform apply
+```
+
+Ensure the following variable is set:
+
+```hcl
+create_apprunner_service = false
+```
+
+This creates:
+
+- Supporting infrastructure
+- IAM roles
+- Secrets
+
+
+At this stage, **App Runner is NOT created yet**.
+
+---
+
+# 🔁 Step 3 — First GitHub Push (App Runner Disabled)
+
+Commit and push with:
+
+```hcl
+create_apprunner_service = false
+```
+
+```bash
+git add .
+git commit -m "Initial infra setup without App Runner"
+git push
+```
+
+This ensures:
+
+- Core infrastructure is created
+- No App Runner service attempts deployment yet
+- You can validate IAM, networking, and database connectivity first
+
+---
+
+# 🚀 Step 4 — Enable App Runner (Phase 2)
+
+Now update:
+
+```hcl
+create_apprunner_service = true
+```
+
+Commit and push again:
+
+```bash
+git add .
+git commit -m "Enable App Runner deployment"
+git push
+```
+
+Then apply Terraform:
+
+```bash
+terraform apply
+```
+
+This will:
+
+- Create the AWS App Runner service
+- Connect it to your GitHub repository
+- Deploy the backend automatically
+- Attach environment variables and IAM roles
+
+---
+
+# 🧠 Why Two-Phase Deployment?
+
+This avoids:
+
+- Premature service creation
+- CI/CD race conditions
+- Failed App Runner builds due to missing infrastructure
+- Circular dependency issues
+
+It ensures your:
+
+1. Database  
+2. Networking  
+3. IAM  
+4. Secrets  
+
+are fully provisioned before service deployment.
+
+---
+
+# 🔐 Production Best Practices
+
+- Enable S3 versioning (should already be done in bootstrap)
+- Enable DynamoDB point-in-time recovery
+- Use least-privilege IAM roles
+- Store secrets in AWS Secrets Manager
+- Enable CloudWatch logs for App Runner
+- Restrict database security groups
+
+---
+
+# ✅ Full Deployment Flow Summary
+
+```bash
+# One time only
+./scripts/bootstrap-terraform-state.sh
+
+# Initialize terraform
+terraform init
+
+# Create environment (App Runner disabled)
+terraform apply
+
+# Push with create_apprunner_service = false
+
+# Update variable to true
+# Push again
+
+terraform apply
+```
